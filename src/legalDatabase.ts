@@ -5,12 +5,16 @@ export interface StateLegalInfo {
     statute: string;
     timeframe: string;
     type: string;
+    types?: string[];
+    notes?: string;
   };
   stopAndID: {
     hasStopID: boolean;
     statute: string;
     requiresID: string;
     recordingConsent: string;
+    requirement?: string;
+    notes?: string;
   };
   cannabis: {
     status: string;
@@ -18,6 +22,13 @@ export interface StateLegalInfo {
     enacted: string;
     medicalOnlyInfo?: string;
     penalties?: string;
+    possessionLimit?: string;
+    notes?: string;
+    medicalCardInfo?: {
+      applicationProcess: string;
+      qualifyingConditions: string[];
+      renewal: string;
+    };
   };
   caseLaw: Array<{
     name: string;
@@ -32,6 +43,8 @@ export interface StateLegalInfo {
     videoLegal: boolean;
     audioLegal: boolean;
     exceptions?: string[];
+    videoRecording?: string;
+    notes?: string;
   };
 }
 

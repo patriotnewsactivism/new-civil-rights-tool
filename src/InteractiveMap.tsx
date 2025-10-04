@@ -1,13 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { STATE_LEGAL_DATABASE, StateLegalInfo } from './legalDatabase';
+import { STATE_LEGAL_DATABASE, type StateLegalInfo } from './legalDatabase';
 
 interface InteractiveMapProps {
   onStateSelect: (state: string) => void;
   selectedState: string;
-  theme: string;
 }
 
-const InteractiveMap: React.FC<InteractiveMapProps> = ({ onStateSelect, selectedState, theme }) => {
+const InteractiveMap: React.FC<InteractiveMapProps> = ({ onStateSelect, selectedState }) => {
   const [hoveredState, setHoveredState] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [tooltipContent, setTooltipContent] = useState<StateLegalInfo | null>(null);
