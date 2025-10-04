@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { AlertTriangle, Download, FileText, Shield, Scale, Book, Check, X } from 'lucide-react';
+import { AlertTriangle, Download, FileText, Shield, Scale, Book, Check, X, BookOpen } from 'lucide-react';
+import Resources from './Resources';
 
 type LawDatabase = { [key: string]: { statute: string; timeframe: string; type: string; } };
 type StopIdDatabase = { [key:string]: { hasStopID: boolean; statute: string; requiresID: string; recordingConsent: string; } };
@@ -859,6 +860,7 @@ const CivilRightsLegalTool = () => {
                   { id: 'toolkit', label: 'Legal Toolkit Pro', icon: FileText },
                   { id: 'state-laws', label: 'State Laws', icon: Book },
                   { id: 'warnings', label: 'Hostile State Warnings', icon: AlertTriangle },
+                  { id: 'resources', label: 'Resources', icon: BookOpen },
                   { id: 'pricing', label: 'Pricing', icon: Shield }
                 ].map(tab => (
                   <button
@@ -909,6 +911,10 @@ const CivilRightsLegalTool = () => {
             {activeTab === 'warnings' && (
               <HostileStateWarningsTab theme={theme} />
             )}
+
+               {activeTab === 'resources' && (
+                 <Resources theme={theme} />
+               )}
 
             {activeTab === 'pricing' && (
               <PricingTab subscription={subscription} setSubscription={setSubscription} theme={theme} />
